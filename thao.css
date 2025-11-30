@@ -13,12 +13,47 @@ body {
     line-height: 1.6;
 }
 
+/* ===== ANIMATION KEYFRAMES ===== */
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== APPLY ANIMATION ===== */
+
+header {
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.hero-pic img {
+    animation: scaleIn 1.2s ease forwards;
+}
+
+.hero-text {
+    animation: fadeUp 1.2s ease forwards;
+}
+
 /* HERO HEADER */
 .hero-header {
     width: 100%;
     min-height: 100vh;
     background: #ffffff;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 1s ease forwards;
 }
 
 /* WRAPPER */
@@ -27,13 +62,25 @@ body {
     max-width: 95%;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* HEADER */
 header {
+    width: 100%;
     padding: 40px 0 30px;
     display: flex;
-    justify-content:  center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -45,6 +92,7 @@ header {
 
 /* NAVIGATION */
 nav {
+    margin-top: 10px;
     position: relative;
 }
 
@@ -52,8 +100,8 @@ nav .togglebtn {
     width: 35px;
     height: 35px;
     position: absolute;
-    top: 45px;
-    right: 3%;
+    top: -10px;
+    right: -50px;
     z-index: 5;
     cursor: pointer;
     display: none;
@@ -84,12 +132,14 @@ nav .navlinks li a {
 
 /* HERO CONTENT */
 .container-hero {
-     display: flex;
-    justify-content: center;  
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;       
-    flex-direction: column;   
+    text-align: center;
+    flex-direction: column;
     gap: 20px;
+    padding-top: 20px;
 }
 
 .hero-pic {
@@ -100,16 +150,15 @@ nav .navlinks li a {
 
 .hero-pic img {
     width: 100%;
-    max-width: 450px; 
+    max-width: 450px;
     height: auto;
-    margin: 0 auto; 
-    justify-content: center;
-    align-items: center;
 }
 
+/* TEXT */
 .hero-text {
     text-align: center;
     margin: 0 auto;
+    max-width: 700px;
 }
 
 .hero-text h5 {
@@ -163,7 +212,7 @@ nav .navlinks li a {
     transform: rotate(360deg);
 }
 
-/* ABOUT PAGE CONTENT */
+/* ABOUT CONTENT */
 .content {
     display: flex;
     gap: 40px;
@@ -233,22 +282,15 @@ h2 {
 @media (max-width: 1200px) {
     .hero-pic {
         width: 500px;
-        height: 550px;
+        height: auto;
     }
 }
 
 /* TABLET (max 992px) */
 @media (max-width: 992px) {
     .container-hero {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
-    }
-    .hero-text {
-        align-items: center;
-    }
-    .hero-pic {
-        width: 450px;
-        height: auto;
     }
 
     .content {
@@ -269,7 +311,7 @@ h2 {
 
     nav .navlinks {
         position: absolute;
-        top: 110px;
+        top: 50px;
         right: -100%;
         width: 60%;
         height: 100vh;
