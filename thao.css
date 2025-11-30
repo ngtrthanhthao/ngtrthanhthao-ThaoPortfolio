@@ -18,6 +18,7 @@ body {
     width: 100%;
     min-height: 100vh;
     background: #ffffff;
+    justify-content: center;
 }
 
 /* WRAPPER */
@@ -101,7 +102,9 @@ nav .navlinks li a {
     width: 100%;
     max-width: 450px; 
     height: auto;
-    margin: 0 auto;    
+    margin: 0 auto; 
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-text {
