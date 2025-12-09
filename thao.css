@@ -1,3 +1,4 @@
+
 /* RESET & GLOBAL */
 * {
     padding: 0;
@@ -8,8 +9,8 @@
 }
 
 body {
-    background: #fff;
-    color: #333;
+    background: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 
@@ -208,7 +209,7 @@ nav .navlinks li a {
 }
 
 .hero-text .social i:hover {
-    color: #007ced;
+    color: #AABAC6;
     transform: rotate(360deg);
 }
 
@@ -237,14 +238,14 @@ nav .navlinks li a {
 
 /* TITLES */
 h1 {
-    color: #90c3d4;
+    color: #ffffff;
     font-size: 40px;
     margin-bottom: 10px;
     text-align: center;
 }
 
 h2 {
-    color: #1d344a;
+    color: #ffffff;
     font-size: 22px;
     margin-bottom: 10px;
 }
@@ -254,7 +255,7 @@ h2 {
 }
 
 .TVC, .free {
-    color: #aac2da;
+    color: #ffffff;
 }
 
 /* CONTACT */
@@ -267,18 +268,14 @@ h2 {
 }
 
 .contact a {
-    color: #007bff;
+    color: #aabac6;
     font-weight: bold;
 }
 .contact a:hover {
     text-decoration: underline;
 }
 
-/* -------------------------- */
-/* RESPONSIVE DESIGN */
-/* -------------------------- */
 
-/* TABLET LARGE (max 1200px) */
 @media (max-width: 1200px) {
     .hero-pic {
         width: 500px;
