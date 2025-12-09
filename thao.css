@@ -13,17 +13,16 @@ body {
     line-height: 1.6;
 }
 
-/* ===== ANIMATION KEYFRAMES ===== */
+/* ========== ANIMATION ========== */
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
 @keyframes scaleIn { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
 
-/* Apply animation */
 header { animation: fadeIn 1.2s ease forwards; }
 .hero-pic img { animation: scaleIn 1.2s ease forwards; }
 .hero-text { animation: fadeUp 1.2s ease forwards; }
 
-/* HERO HEADER */
+/* ========== HERO HEADER ========== */
 .hero-header {
     width: 100%;
     min-height: 100vh;
@@ -39,8 +38,6 @@ header { animation: fadeIn 1.2s ease forwards; }
     max-width: 95%;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* HEADER + NAV */
@@ -134,7 +131,7 @@ nav .navlinks li a {
     border-color: #a5b9cc;
 }
 
-/* ABOUT ME SECTION */
+/* ABOUT SECTION */
 .content {
     display: flex;
     gap: 40px;
@@ -162,42 +159,32 @@ nav .navlinks li a {
 h1 { color: #ffffff; text-align: center; }
 h2 { color: #ffffff; margin-bottom: 10px; }
 
-/* ================================ */
-/* RESPONSIVE IFRAME FIX */
-/* ================================ */
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-    margin: 20px 0;
+/* ========== IFRAME RESPONSIVE AUTO FIX FOR VIMEO + YOUTUBE ========== */
+iframe {
+    width: 100% !important;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;  /* === CHỈNH TỰ ĐỘNG THEO MÀN HÌNH === */
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+    border: none;
 }
 
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* GRID FOR VIDEO GROUPS (TVC, FREE, OTHER) */
+/* ========== GRID FOR VIDEO GROUPS (TVC / FREE / OTHER) ========== */
 .TVC, .free, .ot {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
-/* Image gr.png FIX */
+/* FIX gr.png */
 .more img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
     margin: 20px auto;
+    object-fit: cover;
 }
 
 /* CONTACT */
@@ -213,11 +200,7 @@ h2 { color: #ffffff; margin-bottom: 10px; }
     font-weight: bold;
 }
 
-/* ================================ */
-/* RESPONSIVE */
-/* ================================ */
-
-/* TABLET */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 992px) {
     .right-column { padding-left: 0; }
 }
@@ -249,26 +232,14 @@ h2 { color: #ffffff; margin-bottom: 10px; }
 
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-header {
-        padding-top: 40px;
-    }
-
-    .content {
-        padding: 0 10px;
-    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-header { padding-top: 40px; }
+    .content { padding: 0 10px; }
 }
 
 /* SMALL MOBILE */
 @media (max-width: 576px) {
-
-    .hero-text h1 {
-        font-size: 1.9rem;
-    }
+    .hero-text h1 { font-size: 1.9rem; }
 
     .btn-group .btn {
         width: 100%;
@@ -276,10 +247,7 @@ h2 { color: #ffffff; margin-bottom: 10px; }
     }
 }
 
-/* ULTRA SMALL DEVICES */
+/* ULTRA SMALL */
 @media (max-width: 400px) {
-    nav .togglebtn {
-        right: -20px;
-        top: -5px;
-    }
+    nav .togglebtn { right: -20px; top: -5px; }
 }
