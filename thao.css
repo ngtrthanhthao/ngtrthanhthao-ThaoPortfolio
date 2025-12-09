@@ -1,104 +1,283 @@
-/* ===============================
-   FIX RESPONSIVE CHO PHẦN VIDEO
-   =============================== */
-
-/* Khối lớn video */
-#video {
-    width: 100%;
-    margin-top: 60px;
-    padding: 0 20px;
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Tiêu đề */
-#video h1 {
-    text-align: center;
+body {
+    background: #000000;
     color: #ffffff;
-    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
-/* --- VIDEO ĐẦU TIÊN (VIMEO) --- */
-.mypro iframe {
-    width: 100%;
-    max-width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
-    display: block;
-    margin: 0 auto 40px;
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeIn { 
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* --- GRID CHO TVC – FREE – OTHER --- */
-.TVC,
-.free,
-.ot {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-    width: 100%;
+@keyframes fadeUp { 
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-.TVC iframe,
-.free iframe,
-.ot iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
-    display: block;
-    border-radius: 8px;
+@keyframes scaleIn { 
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-/* --- GR.PNG --- */
-.more {
+/* Apply animation */
+header { animation: fadeIn 1.2s ease forwards; }
+.hero-pic img { animation: scaleIn 1.2s ease forwards; }
+.hero-text { animation: fadeUp 1.2s ease forwards; }
+
+/* HERO HEADER */
+.hero-header {
     width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+.wrapper {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER + NAV */
+header {
+    width: 100%;
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 10px;
+    position: relative;
+}
+
+nav .togglebtn {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: -10px;
+    right: -50px;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+}
+
+nav .togglebtn span {
+    display: block;
+    background-color: #222;
+    margin: 6px 0;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+}
+
+nav .navlinks {
+    list-style: none;
+}
+
+nav .navlinks li {
+    display: inline-block;
+}
+
+nav .navlinks li a {
+    color: #070707;
+    margin-right: 2.5rem;
+    font-weight: 500;
+}
+
+/* HERO CONTENT */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-pic img {
+    width: 100%;
+    max-width: 430px;
+    height: auto;
+}
+
+.hero-text {
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    color: #a3b9ce;
+    font-size: 3rem;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+    margin: 40px 0;
+}
+
+.btn-group .btn {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    margin: 5px;
+    display: inline-block;
+}
+
+.btn.active {
+    border-color: #a5b9cc;
+}
+
+/* ABOUT ME SECTION */
+.content {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin: 60px auto;
+    max-width: 1100px;
+    flex-wrap: wrap;
+}
+
+.left-column, 
+.right-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.right-column {
+    padding-left: 40px;
+}
+
+.left-column p,
+.right-column p {
+    line-height: 1.7;
+}
+
+h1 { color: #ffffff; text-align: center; }
+h2 { color: #ffffff; margin-bottom: 10px; }
+
+/* ================================ */
+/* RESPONSIVE IFRAME FIX */
+/* ================================ */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* GRID FOR VIDEO GROUPS */
+.TVC, .free, .ot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+/* Image gr.png FIX */
 .more img {
     width: 100%;
-    max-width: 900px;
     height: auto;
     display: block;
-    margin: 30px auto;
-    border-radius: 10px;
+    object-fit: cover;
+    margin: 20px auto;
 }
 
-/* ===============================
-   RESPONSIVE MOBILE
-   =============================== */
+/* CONTACT */
+.contact {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+.contact a {
+    color: #aabac6;
+    font-weight: bold;
+}
+
+/* ================================ */
+/* RESPONSIVE */
+/* ================================ */
+
+/* TABLET */
+@media (max-width: 992px) {
+    .right-column { padding-left: 0; }
+}
+
+/* MOBILE MENU */
+@media (max-width: 930px) {
+    nav .togglebtn { display: block; }
+
+    nav .navlinks {
+        position: absolute;
+        top: 50px;
+        right: -100%;
+        width: 65%;
+        height: 100vh;
+        background-color: #111;
+        padding: 25px 0;
+        text-align: center;
+        transition: 0.5s;
+        z-index: 10;
+    }
+
+    nav .navlinks li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    nav .navlinks.open { right: 0; }
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-header { padding-top: 40px; }
+    .content { padding: 0 10px; }
+}
 
-    .TVC,
-    .free,
-    .ot {
-        grid-template-columns: 1fr; /* mỗi video 1 hàng */
-        gap: 25px;
-    }
-
-    #video h1 {
-        font-size: 1.7rem;
-    }
-
-    .more img {
-        max-width: 100%;
-        margin-top: 10px;
+/* SMALL MOBILE */
+@media (max-width: 576px) {
+    .hero-text h1 { font-size: 1.9rem; }
+    .btn-group .btn {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
 
-@media (max-width: 480px) {
-
-    .mypro iframe {
-        aspect-ratio: 16 / 9;
-    }
-
-    .TVC iframe,
-    .free iframe,
-    .ot iframe {
-        aspect-ratio: 16 / 9;
-    }
-
-    #video {
-        padding: 0 10px;
+/* ULTRA SMALL */
+@media (max-width: 400px) {
+    nav .togglebtn {
+        right: -20px;
+        top: -5px;
     }
 }
