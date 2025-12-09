@@ -2,156 +2,161 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thao's Portofolio</title>
+    <title>Thao's Portfolio</title>
     <link rel="stylesheet" href="thao.css">
 </head>
+
 <body>
-     <div class="hero-header">
+
+    <!-- HERO HEADER -->
+    <div class="hero-header">
         <div class="wrapper">
             <header>
                 <nav>
                     <div class="togglebtn">
-                        <span></span> 
+                        <span></span>
                         <span></span>
                         <span></span>
                     </div>
+
                     <ul class="navlinks">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Portfolio</a></li>
                     </ul>
                 </nav>
             </header>
+
             <div class="container">
-                 <div class="hero-pic">
+                <div class="hero-pic">
                     <img src="THAO.png" alt="profile pic">
-                 </div>
-                 <div class="hero-text">
+                </div>
+
+                <div class="hero-text">
                     <h5>Hi I'm <span class="input">Editor</span></h5>
                     <h1>Thanh Thao</h1>
-                    <p> 
-                    </p>
 
                     <div class="btn-group">
-                       <a href="https://heyzine.com/flip-book/2e1b76664f.html" class="btn active">MY CV</a>
-                       <a href="https://www.facebook.com/tgia.24"><i class="fa-brands fa-facebook"></i></a>
-                       <a href="https://www.facebook.com/tgia.24" class="btn">Contact</a>
+                        <a href="https://heyzine.com/flip-book/2e1b76664f.html" class="btn active">MY CV</a>
+                        <a href="https://www.facebook.com/tgia.24"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/tgia.24" class="btn">Contact</a>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
-     </div>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-     <script>
-        var togglebtn=document.querySelector(".togglebtn");
-        var nav=document.querySelector(".navlinks");
-        var links=document.querySelector(".navlinks li");
+    </div>
 
-        togglebtn.addEventListener("click", function(){
-            this.classList.toggle("click");
-            nav.classList.toggle("open");
-        })
+    <!-- ABOUT ME -->
+    <section id="services">
+        <div class="container">
+            <h1>ABOUT ME</h1>
+        </div>
 
-        var typed=new Typed(".input",{
+        <div class="content">
+            <div class="left-column">
+                <p>Hello,<br>
+                My name is Nguyen Tran Thanh Thao. I am a third-year student at Van Hien University, studying Multimedia Communication.
+                </p>
+
+                <div class="info">
+                    <p><strong>Name</strong><br>Nguyen Tran Thanh Thao</p>
+                    <p><strong>Address</strong><br>Quan 8, HCMC</p>
+                    <p><strong>DOB</strong><br>July 24, 2004</p>
+                    <p><strong>Email</strong><br>thanhthaonguyentran24@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2>EDUCATION</h2>
+                    <p><strong>Van Hien University | 2022 - 2026</strong><br>Media Communication</p>
+                </div>
+
+                <div class="section">
+                    <h2>CERTIFICATE</h2>
+                    <p><strong>Keyframe | 2022</strong> - Photoshop</p>
+                    <p><strong>Colorme | 2024</strong> - Premier Pro, Photography, Illustrator</p>
+                </div>
+
+                <div class="section">
+                    <h2>EXPERIENCE</h2>
+                    <p><strong>Peak Sport | 2022 - 2024</strong><br>Sales staff, Support for livestreams</p>
+                    <p><strong>CTCP Hazza | Ananas | 2024 - 2025</strong><br>Store Assistant</p>
+                    <p><strong>FREELANCER | 2024 - Now</strong><br>Written - Cameraman - Editor</p>
+                </div>
+
+                <div class="section">
+                    <h2>SKILL</h2>
+                    <p><strong>Edit video:</strong> Premiere Pro, DaVinci Resolve, Capcut Pro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section id="video">
+        <h1>MY PROJECT</h1>
+
+        <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/1144983158?badge=0&autopause=0"
+                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        </div>
+
+        <h1>TVC</h1>
+        <div class="TVC">
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/U7fIRqeiQRs"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/461ts-efja4"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/JnifRPaCVmw"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/UwAo-p5UJTk"></iframe></div>
+        </div>
+
+        <h1>TIKTOK & REELS</h1>
+        <div class="free">
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/BlIAwcZ90ac"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/ONW-HlE2XkI"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://youtube.com/embed/tWtwTl46BEk"></iframe></div>
+        </div>
+
+        <h1>OTHER</h1>
+        <div class="ot">
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/DZrl5CbWgas"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/FjMum8Xnpks"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61577412776193/videos/737480879069235/"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61573452086911/videos/1272598414663121/"></iframe></div>
+        </div>
+
+        <div class="more">
+            <img src="gr.png" alt="pts">
+        </div>
+    </section>
+
+    <!-- THANK YOU -->
+    <section id="thank">
+        <h1>THANK YOU FOR WATCHING</h1>
+        <div class="contact">
+            <strong>CONTACT:</strong>
+            <a href="https://facebook.com" target="_blank">FACEBOOK</a>
+            <span>|</span>
+            <a href="https://zalo.me" target="_blank">ZALO</a>
+            <span>|</span>
+            <a href="mailto:thanhthaonguyentran24@gmail.com">thanhthaonguyentran24@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        document.querySelector(".togglebtn").addEventListener("click", function(){
+            document.querySelector(".navlinks").classList.toggle("open");
+        });
+
+        var typed = new Typed(".input", {
             strings:["Editor","Video Grapher"],
             typedSpeed:70,
             backSpeed:55,
             loop:true
-        })
-     </script>
-     <section id="services">
-         <div class="container">
-            <h1>ABOUT ME</h1> </div>
-    <div class="content">
-      <div class="left-column">
-        <p>Hello,<br>
-        My name is Nguyen Tran Thanh Thao. I am a third-year student at Van Hien University, studying Multimedia Communication.<br>
-        I am a friendly and easy-going person. I can work well under pressure and adapt quickly to new environments. I always try my best in everything I do and enjoy working in teams. I love learning new things and creating media content.
-        </p>
-        <div class="info">
-          <p><strong>Name</strong><br>Nguyen Tran Thanh Thao</p>
-          <p><strong>Address</strong><br>Quan 8, HCMC</p>
-          <p><strong>DOB</strong><br>July 24, 2004</p>
-          <p><strong>Email</strong><br>thanhthaonguyentran24@gmail.com</p>
-        </div>
-      </div>
-      <div class="right-column">
-        <div class="section">
-          <h2>EDUCATION</h2>
-          <p><strong>Van Hien University | 2022 - 2026</strong><br>Media Communication</p>
-          <p><strong>TOEIC BUDDIES | Now </strong><br></p>
-        </div>
-        <div class="section">
-          <h2>CERTIFICATE</h2>
-          <p><strong>Keyframe | 2022</strong> - Photoshop</p>
-          <p><strong>Colorme | 2024</strong> - Premier Pro, Photography, Illustrator</p>
-        </div>
-        <div class="section">
-          <h2>EXPERIENCE</h2>
-          <p><strong>Peak Sport | 2022 - 2024</strong><br>Sales staff, Support for livestreams</p>
-          <p><strong>CTCP Hazza | Ananas | 2024 - 2025</strong><br>Store Assistant</p>
-           <p><strong>FREEFLANCER | 2024 - Now</strong><br>Written - Cameraman - Editor</p>
-        </div>
-        <div class="section">
-          <h2>SKILL</h2>
-          <p><strong>Edit video:</strong> Premier Pro, DaVinci Resolve, Capcut Pro (Travel, TVC, Stopmotion, Vlog, Film...)</p>
-          <p><strong>Basic English</strong></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
-  <section id="video">
-    <div class="mypro"> 
-      <h1>MY PROJECT</h1>
-<iframe width="1200" height="350" src="https://player.vimeo.com/video/1144983158?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1906" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="PORTFOLIOTHANHTHAO"></iframe>    </div>
-    <div class="TVC">
-      <h1>TVC</h1>
-      <iframe width="420" height="345" src="https://youtube.com/embed/U7fIRqeiQRs?si=eMeVHMrFX2qvwJJz">
-      </iframe>
-      <iframe width="420" height="345" src="https://youtube.com/embed/461ts-efja4?feature=share">
-      </iframe>
-      <iframe width="420" height="345" src="https://youtube.com/embed/JnifRPaCVmw?feature=share">
-      </iframe>
-      <iframe width="420" height="345" src="https://youtube.com/embed/UwAo-p5UJTk?feature=share">
-      </iframe>
-    </div>
-    <div class="free">
-      <h1>TIKTOK & REELS</h1>
-       <iframe width="420" height="345" src="https://youtube.com/embed/BlIAwcZ90ac?feature=share">
-       </iframe>
-       <iframe width="420" height="345" src="https://youtube.com/embed/ONW-HlE2XkI?feature=share">
-       </iframe>
-       <iframe width="420" height="345" src="https://youtube.com/embed/tWtwTl46BEk?feature=share">
-       </iframe>
-    </div>
-    <div class="ot">
-      <h1>OTHER</h1>
-       <iframe width="420" height="345" src="https://www.youtube.com/embed/DZrl5CbWgas?si=uNWkiSwsCoUGsdFj">
-       </iframe>
-       <iframe width="420" height="345" src="https://www.youtube.com/embed/FjMum8Xnpks?si=7e8FUn6w17EJNOxT">
-       </iframe>
-       <iframe width="420" height="345" src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2F61577412776193%2Fvideos%2F737480879069235%2F&show_text=false&width=560&t=0">
-       </iframe>
-       <iframe width="420" height="345" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61573452086911%2Fvideos%2F1272598414663121%2F&show_text=false&width=560&t=0">
-       </iframe>
-    </div>
-    <div class="more">
-      <img src="gr.png" alt="pts">
-    </div>
-  </section>
-  <section id="thank">
-    <div class="th">
-      <h1>THANK YOU FOR WATCHING</h1>
-       <div class="contact">
-         <strong>CONTACT:</strong>
-         <a href="https://facebook.com" target="_blank">FACEBOOK</a>
-         <span>|</span>
-         <a href="https://zalo.me" target="_blank">ZALO</a>
-         <span>|</span>
-         <a href="mailto:thanhthaonguyentran24@gmail.com">thanhthaonguyentran24@gmail.com</a>
-    </div>
-  </section>
+        });
+    </script>
+
 </body>
 </html>
