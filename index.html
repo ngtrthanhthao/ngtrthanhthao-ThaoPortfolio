@@ -8,8 +8,6 @@
 </head>
 
 <body>
-
-    <!-- HERO HEADER -->
     <div class="hero-header">
         <div class="wrapper">
             <header>
@@ -23,6 +21,8 @@
                     <ul class="navlinks">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Portfolio</a></li>
+                        <li><a href="#" onclick="setLanguage('en')">EN</a></li>
+                        <li><a href="#" onclick="setLanguage('vi')">VI</a></li>
                     </ul>
                 </nav>
             </header>
@@ -33,25 +33,21 @@
                 </div>
 
                 <div class="hero-text">
-                    <h5>Hi I'm <span class="input">Editor</span></h5>
-                    <h1>Thanh Thao</h1>
-
+                   <h5 data-key="hi">Hi I'm <span class="input">Editor</span></h5>
+                   <h1 data-key="name">Thanh Thao</h1>
                     <div class="btn-group">
-                        <a href="https://heyzine.com/flip-book/573ce92057.html" class="btn active">MY CV</a>
+                        <a href="https://heyzine.com/flip-book/23cfcd3496.html" class="btn active">MY CV</a>
                         <a href="https://www.facebook.com/tgia.24"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.facebook.com/tgia.24" class="btn">Contact</a>
+                        <a href="https://www.facebook.com/tgia.24" class="btn" data-key="contact">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- ABOUT ME -->
     <section id="services">
         <div class="container">
-            <h1>ABOUT ME</h1>
+            <h1 data-key="about">ABOUT ME</h1>
         </div>
-
         <div class="content">
             <div class="left-column">
                 <p>Hello,<br>
@@ -82,13 +78,18 @@
                     <h2>EXPERIENCE</h2>
                     <p><strong>Peak Sport | 2022 - 2024</strong><br>Support for livestreams</p>
                     <p><strong>FREELANCER | 2024 - Now</strong><br>Written - Cameraman - Editor</p>
-                    <p><strong>HUNGHAU AGRICULTURAL</strong><br>Intern | Post Production</p>
-                    <p><strong>MEM NGON COMPANY LIMITED</strong><br>Media | Editor</p>
+                    <p><strong>HUNGHAU AGRICULTURAL | 10 - 11/2025</strong><br>Intern | Post Production</p>
+                    <p><strong>MEM NGON COMPANY LIMITED | 12/2025 - Now</strong><br>Media | Editor</p>
                 </div>
 
                 <div class="section">
                     <h2>SKILL</h2>
-                    <p><strong>Edit video:</strong> Premiere Pro, DaVinci Resolve, Capcut Pro</p>
+                    <p><strong>Filming, video editing & post-production:</strong> Premiere Pro, DaVinci Resolve, Capcut Pro</p>
+                    <p><strong>Video scriptwriting & content creation</strong></p>
+                    <p><strong>Color grading & basic visual effects</strong></p>
+                    <p><strong>Platform-oriented content production:</strong> TikTok, Facebook, Instagram, YouTube</p>
+                    <p><strong>Basic HTML & CSS knowledge</strong>/p>
+                    <p><strong>Applying AI tools in content production and workflow optimization</strong>/p>
                 </div>
             </div>
         </div>
@@ -158,6 +159,32 @@
             loop:true
         });
     </script>
+<script>
+const translations = {
+  en: {
+    home: "Home",
+    portfolio: "Portfolio",
+    hi: "Hi I'm <span class='input'>Editor</span>",
+    name: "Thanh Thao",
+    about: "ABOUT ME",
+    contact: "Contact"
+  },
+  vi: {
+    home: "Trang chủ",
+    portfolio: "Dự án",
+    hi: "Xin chào, tôi là <span class='input'>Biên tập viên</span>",
+    name: "Thanh Thảo",
+    about: "GIỚI THIỆU",
+    contact: "Liên hệ"
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll("[data-key]").forEach(el => {
+    el.innerHTML = translations[lang][el.dataset.key];
+  });
+}
+</script>
 
 </body>
 </html>
