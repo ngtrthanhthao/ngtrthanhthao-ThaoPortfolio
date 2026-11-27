@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nguyen Tran Thanh Thao — Media &amp; Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#000000;--surface:#101314;--ink:#F2F5F3;--muted:#9AA7A9;--line:#262C2E;--rec:#FF6A9A;--clip1:#4DA3A8;--clip2:#F0B455;--clip3:#A58BE8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "Be Vietnam Pro",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rec);outline-offset:3px}
+html[data-lang="vi"] [lang="en"],html[data-lang="en"] [lang="vi"]{display:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.logo{font:700 18px "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:18px;align-items:center;font-size:14px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.lang button{font:600 12px "Be Vietnam Pro",sans-serif;border:0;background:none;color:var(--muted);padding:5px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media(max-width:640px){nav a{display:none}}
+/* hero */
+.hero{padding:36px 0 36px}
+.hero-top{display:grid;grid-template-columns:1fr 320px;gap:36px;align-items:center}
+@media(max-width:760px){.hero-top{grid-template-columns:1fr}.portrait{order:-1;max-width:280px}}
+.role{color:var(--muted);font-weight:500;margin:0 0 14px}
+.hero h1{font-size:clamp(44px,9.5vw,104px);font-weight:800;letter-spacing:-.03em}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:11px 20px;border-radius:99px;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--rec);border-color:var(--rec);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+.portrait{aspect-ratio:13/10;border-radius:14px;overflow:hidden;background:var(--line);width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block}
+/* timeline (hero) */
+.tl{margin-top:48px}
+.tl-read{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:var(--muted);margin-bottom:10px;min-height:24px}
+.tl-read b{color:var(--ink);font-weight:600}
+.tl-read a{font-weight:600;color:var(--rec);text-decoration:none;white-space:nowrap}
+.tl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tl-in{position:relative;min-width:680px;user-select:none;-webkit-user-select:none}
+.tl-ruler{position:relative;height:34px;border-bottom:1px solid var(--line);background:var(--bg);cursor:ew-resize;touch-action:none;overflow:hidden}
+.tl-ruler::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 20px) bottom/100% 9px no-repeat;pointer-events:none}
+.tick{position:absolute;top:0;bottom:0;border-left:1px solid var(--muted)}
+.tick span{position:absolute;top:5px;left:5px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl-track{display:flex;gap:4px;padding:10px}
+.clip{flex:1 1 0;min-width:104px;display:block;text-decoration:none;color:#fff;padding:12px 14px;border-radius:6px;font-weight:600;font-size:14px;min-height:66px;transition:opacity .2s}
+.clip small{display:block;font-weight:400;opacity:.85;font-size:12px}
+.c1{background:var(--clip1)}.c2{background:var(--clip2);color:#17262B}.c3{background:var(--clip3)}.c4{background:var(--ink);color:var(--bg)}.c5{background:var(--rec)}.c6{background:#56666B}
+.tl-in.has .clip:not(.on){opacity:.5}
+.clip.on{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
+.play{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--rec);z-index:5;pointer-events:none;transition:left .25s}
+.tl-in.drag .play{transition:none}
+.knob{position:absolute;top:3px;left:-10px;width:22px;height:28px;background:var(--rec);border-radius:4px 4px 12px 12px;pointer-events:auto;cursor:ew-resize;touch-action:none}
+.knob:focus-visible{outline:3px solid var(--ink)}
+.hint{color:var(--muted);font-size:14px;margin:12px 0 0}
+.vid.hl{box-shadow:0 0 0 3px var(--rec)}
+/* full-width images */
+.cover{width:100%;background:#fff;line-height:0}
+.cover img{display:block;width:100%;height:auto;max-height:88vh;object-fit:contain;margin:0 auto}
+section.full{padding:0;border-top:0;background:#000}
+.full img{display:block;width:100%;height:auto}
+.frame.v{max-width:300px;margin:0 auto}
+.tl-scroll{-webkit-overflow-scrolling:touch}
+@media(max-width:640px){.wrap{padding:0 16px}.hero h1{font-size:clamp(40px,13vw,64px)}.btn{padding:10px 16px;font-size:14px}.mon{padding:10px}}
+/* sections */
+section{padding:60px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(30px,5vw,44px);margin-bottom:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:0}
+.facts dt{color:var(--muted);font-size:14px}.facts dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+.job{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.job:first-child{padding-top:0}
+.job.sm{grid-template-columns:110px 1fr}
+.job time{color:var(--muted);font-size:14px}.job b{display:block;font-weight:600}.job span{color:var(--muted);font-size:15px}
+@media(max-width:520px){.job{grid-template-columns:1fr}}
+.skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.skills li{border:1px solid var(--line);background:var(--surface);padding:7px 14px;border-radius:99px;font-size:14px}
+h3{font-size:20px;margin:0 0 14px}.sub{margin-top:30px}
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font:500 14px "Be Vietnam Pro",sans-serif;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 16px;border-radius:99px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:20px;align-items:start}
+.vid{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:box-shadow .3s}
+.vid[hidden]{display:none}
+.vid.hl{box-shadow:0 0 0 3px var(--rec)}
+.frame{background:#0c1417;aspect-ratio:16/9;position:relative}
+.frame.v{aspect-ratio:9/16}
+.frame iframe{width:100%;height:100%;border:0;display:block}
+.crop{position:absolute;inset:0;background-repeat:no-repeat}
+.meta{padding:12px 14px}
+.meta b{display:block;font-weight:600;font-size:15px}.meta span{color:var(--muted);font-size:13px}
+.channels{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.channels>span{font-weight:600;font-size:14px}
+.channels a{font-size:14px;font-weight:500;text-decoration:none;border:1.5px solid var(--line);background:var(--surface);padding:7px 14px;border-radius:99px}
+.channels a:hover{border-color:var(--ink)}
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(30px,5.5vw,56px);max-width:18em;margin-left:auto;margin-right:auto}
+.contact .btns{justify-content:center}
+footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="logo" href="#top">Thanh Thao</a>
+ <nav>
+  <a href="#about"><span lang="vi">Giới thiệu</span><span lang="en">About</span></a>
+  <a href="#experience"><span lang="vi">Kinh nghiệm</span><span lang="en">Experience</span></a>
+  <a href="#work"><span lang="vi">Sản phẩm</span><span lang="en">Work</span></a>
+  <a href="#contact"><span lang="vi">Liên hệ</span><span lang="en">Contact</span></a>
+  <div class="lang" role="group" aria-label="Language"><button data-set="vi" aria-pressed="true">VI</button><button data-set="en" aria-pressed="false">EN</button></div>
+ </nav>
+</div></header>
+
+<main id="top">
+<div class="cover"><img src="THAO-cover.png" alt="Nguyen Tran Thanh Thao — Portfolio"></div>
+<div class="wrap hero">
+ <p class="role">Media · Editor</p>
+ <h1>Nguyen Tran<br>Thanh Thao</h1>
+ <div class="btns">
+  <a class="btn primary" href="#work"><span lang="vi">Xem sản phẩm</span><span lang="en">See my work</span></a>
+  <a class="btn" href="https://heyzine.com/flip-book/23cfcd3496.html" target="_blank" rel="noopener"><span lang="vi">Xem CV</span><span lang="en">View CV</span></a>
+  <a class="btn" href="mailto:thanhthaonguyentran24@gmail.com"><span lang="vi">Gửi email</span><span lang="en">Send email</span></a>
+ </div>
+ <div class="tl">
+  <div class="tl-read"><span id="tlname"><span lang="vi">Kéo thanh đỏ trên thước để lướt qua các mục</span><span lang="en">Drag the red playhead along the ruler</span></span><a id="tlgo" href="#work"><span lang="vi">Xem ↓</span><span lang="en">View ↓</span></a></div>
+  <div class="tl-scroll"><div class="tl-in" id="tlin">
+   <div class="tl-ruler" id="ruler"></div>
+   <div class="tl-track" id="track">
+    <a class="clip c1" href="#work" data-k="film"><span class="nm"><span lang="vi">Phim tài liệu</span><span lang="en">Documentary</span></span><small data-count="film"></small></a>
+    <a class="clip c2" href="#work" data-k="tvc"><span class="nm">TVC</span><small data-count="tvc"></small></a>
+    <a class="clip c3" href="#work" data-k="social"><span class="nm">TikTok &amp; Reels</span><small data-count="social"></small></a>
+    <a class="clip c4" href="#work" data-k="other"><span class="nm">Other</span><small data-count="other"></small></a>
+    <a class="clip c5" href="#design" data-k="design"><span class="nm">Design</span><small>Illustrator · Logo</small></a>
+    <a class="clip c6" href="#design" data-k="photo"><span class="nm">Photography</span><small>Photo</small></a>
+   </div>
+   <div class="play" id="play"><div class="knob" id="knob" tabindex="0" role="slider" aria-label="Timeline" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div></div>
+ </div>
+</div>
+
+<section id="about"><div class="wrap grid2">
+ <div>
+  <h2><span lang="vi">Giới thiệu</span><span lang="en">About me</span></h2>
+  <dl class="facts">
+   <dt><span lang="vi">Họ tên</span><span lang="en">Name</span></dt><dd>Nguyen Tran Thanh Thao</dd>
+   <dt><span lang="vi">Sinh</span><span lang="en">Born</span></dt><dd>24/07/2004</dd>
+   <dt><span lang="vi">Địa chỉ</span><span lang="en">Address</span></dt><dd>Quận 8, TP.HCM</dd>
+   <dt>Email</dt><dd>thanhthaonguyentran24@gmail.com</dd>
+  </dl>
+ </div>
+ <div>
+  <h3><span lang="vi">Học vấn</span><span lang="en">Education</span></h3>
+  <div class="job sm" style="padding-top:0"><time>2022 – 2026</time><div><b>Van Hien University</b><span><span lang="vi">Truyền thông đa phương tiện</span><span lang="en">Multimedia Communication</span></span></div></div>
+  <h3 class="sub"><span lang="vi">Chứng chỉ</span><span lang="en">Certificates</span></h3>
+  <div class="job sm" style="padding-top:0"><time>2022</time><div><b>Keyframe</b><span>Photoshop</span></div></div>
+  <div class="job sm"><time>2024</time><div><b>Colorme</b><span>Premiere Pro, Photography, Illustrator</span></div></div>
+ </div>
+</div></section>
+
+<section id="experience"><div class="wrap grid2">
+ <div>
+  <h2><span lang="vi">Kinh nghiệm</span><span lang="en">Experience</span></h2>
+  <div class="job"><time>12/2025 – <span lang="vi">nay</span><span lang="en">now</span></time><div><b>Mem Ngon Co., Ltd</b><span>Media · Editor</span></div></div>
+  <div class="job"><time>10 – 11/2025</time><div><b>Hùng Hậu Agricultural</b><span><span lang="vi">Thực tập · Hậu kỳ</span><span lang="en">Intern · Post-production</span></span></div></div>
+  <div class="job"><time>2024 – <span lang="vi">nay</span><span lang="en">now</span></time><div><b>Freelancer</b><span><span lang="vi">Viết kịch bản · Quay phim · Dựng</span><span lang="en">Writer · Cameraman · Editor</span></span></div></div>
+  <div class="job"><time>2022 – 2024</time><div><b>Peak Sport</b><span><span lang="vi">Hỗ trợ livestream</span><span lang="en">Livestream support</span></span></div></div>
+ </div>
+ <div>
+  <h2><span lang="vi">Kỹ năng</span><span lang="en">Skills</span></h2>
+  <ul class="skills">
+   <li>Premiere Pro</li><li>DaVinci Resolve</li><li>CapCut Pro</li>
+   <li><span lang="vi">Quay &amp; hậu kỳ</span><span lang="en">Filming &amp; post</span></li>
+   <li><span lang="vi">Viết kịch bản video</span><span lang="en">Video scriptwriting</span></li>
+   <li>Color grading</li><li>Basic VFX</li><li>Photoshop · Illustrator</li><li>Photography</li>
+   <li>TikTok · Facebook · Instagram · YouTube</li>
+   <li>HTML &amp; CSS</li>
+   <li><span lang="vi">Ứng dụng AI vào quy trình</span><span lang="en">AI-assisted workflow</span></li>
+  </ul>
+ </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+ <h2><span lang="vi">Sản phẩm</span><span lang="en">Selected work</span></h2>
+ <div class="filters" id="filters" role="group" aria-label="Filter">
+  <button data-f="all" aria-pressed="true"><span lang="vi">Tất cả</span><span lang="en">All</span></button>
+  <button data-f="film"><span lang="vi">Phim tài liệu</span><span lang="en">Documentary</span></button>
+  <button data-f="tvc">TVC</button>
+  <button data-f="social">TikTok &amp; Reels</button>
+  <button data-f="other">Other</button>
+  <button data-go="design">Design &amp; Photography ↓</button>
+ </div>
+ <div class="videos" id="videos"></div>
+</div></section>
+
+<section id="design" class="full"><img src="gr.png" alt="Design &amp; Photography — Illustrator, Logo, Name card, Photography" loading="lazy"></section>
+
+<section id="contact" class="contact"><div class="wrap">
+ <h2><span lang="vi">Rất mong có cơ hội được hợp tác cùng bạn.</span><span lang="en">I’d love the chance to work with you.</span></h2>
+ <div class="btns">
+  <a class="btn primary" href="mailto:thanhthaonguyentran24@gmail.com">Email</a>
+  <a class="btn" href="https://zalo.me/0376722371" target="_blank" rel="noopener">Zalo</a>
+  <a class="btn" href="https://www.facebook.com/tgia.24" target="_blank" rel="noopener">Facebook</a>
+ </div>
+</div></section>
+</main>
+<footer>© 2026 Nguyen Tran Thanh Thao</footer>
+
+<script>
+/* ===== THÊM / SỬA SẢN PHẨM Ở ĐÂY =====
+   c: film | tvc | social | other | design | photo
+   t: tiêu đề   r: vai trò / ghi chú
+   type: yt (id YouTube) | vimeo (id) | fb (link video) | tt (id video TikTok, h = tên kênh) | crop (cắt từ gr.png: x,y,w,h)
+   v: 1 nếu là video dọc */
+var WORK=[
+ {c:"film",t:"Đường kim mũi chỉ",r:"Phim tài liệu · Editor",type:"yt",id:"wD2EXwZBZes"},
+ {c:"tvc",t:"TVC 01",type:"yt",id:"U7fIRqeiQRs"},
+ {c:"tvc",t:"TVC 02",type:"yt",id:"461ts-efja4"},
+ {c:"tvc",t:"TVC 03",type:"yt",id:"JnifRPaCVmw"},
+ {c:"tvc",t:"TVC 04",type:"yt",id:"UwAo-p5UJTk"},
+ {c:"social",t:"Reels 01",type:"yt",id:"BlIAwcZ90ac",v:1},
+ {c:"social",t:"Reels 02",type:"yt",id:"ONW-HlE2XkI",v:1},
+ {c:"social",t:"Reels 03",type:"yt",id:"tWtwTl46BEk",v:1},
+ {c:"social",t:"Tiệm Xôi Mềm 01",r:"TikTok · @tiemxoimem",type:"tt",h:"tiemxoimem",id:"7680522024757890322",v:1},
+ {c:"social",t:"Tiệm Xôi Mềm 02",r:"TikTok · @tiemxoimem",type:"tt",h:"tiemxoimem",id:"7693138439591464210",v:1},
+ {c:"social",t:"Tiệm Xôi Mềm 03",r:"TikTok · @tiemxoimem",type:"tt",h:"tiemxoimem",id:"7672690134508244242",v:1},
+ {c:"social",t:"Tiệm Mềm",r:"TikTok · @tiemmemmm",type:"tt",h:"tiemmemmm",id:"7709836404699729170",v:1},
+ {c:"social",t:"Mèm Mực Xôi",r:"TikTok · @memmucxoi",type:"tt",h:"memmucxoi",id:"7646777923067759890",v:1},
+ {c:"other",t:"My project",type:"vimeo",id:"1144983158"},
+ {c:"other",t:"Other 01",type:"yt",id:"DZrl5CbWgas"},
+ {c:"other",t:"Other 02",type:"yt",id:"FjMum8Xnpks"},
+ {c:"other",t:"Facebook video 01",type:"fb",id:"https://www.facebook.com/61577412776193/videos/737480879069235/"},
+ {c:"other",t:"Facebook video 02",type:"fb",id:"https://www.facebook.com/61573452086911/videos/1272598414663121/"},
+ {c:"other",t:"CGV Movies",r:"TikTok · @cgvmovies_official",type:"tt",h:"cgvmovies_official",id:"7705480037465607425",v:1},
+];
+var KIND={yt:"YouTube",vimeo:"Vimeo",fb:"Facebook",tt:"TikTok",crop:""};
+var $=function(i){return document.getElementById(i)};
+function src(w){
+ if(w.type==="yt")return "https://www.youtube.com/embed/"+w.id;
+ if(w.type==="vimeo")return "https://player.vimeo.com/video/"+w.id+"?badge=0&autopause=0";
+ if(w.type==="fb")return "https://www.facebook.com/plugins/video.php?show_text=false&href="+encodeURIComponent(w.id);
+ return "https://www.tiktok.com/embed/v2/"+w.id;
+}
+function fmt(s){return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function grp(w){return (w.c==="illu"||w.c==="card")?"design":w.c}
+/* ---- lưới sản phẩm ---- */
+var box=$("videos"),cards=[];
+WORK.forEach(function(w,i){
+ var d=document.createElement("article");d.className="vid";d.id="w"+i;d.dataset.c=grp(w);
+ var f=document.createElement("div");f.className="frame"+(w.v?" v":"");
+ if(w.type==="crop"){
+  f.style.aspectRatio=w.w+"/"+w.h;
+  var c=document.createElement("div");c.className="crop";c.setAttribute("role","img");c.setAttribute("aria-label",w.t);
+  c.style.backgroundImage="url(gr.png)";
+  c.style.backgroundSize=(1366/w.w*100)+"% auto";
+  c.style.backgroundPosition=(w.x/(1366-w.w)*100)+"% "+(w.y/(2304-w.h)*100)+"%";
+  f.appendChild(c);
+ }else{
+  var ifr=document.createElement("iframe");ifr.src=src(w);ifr.title=w.t;ifr.loading="lazy";
+  ifr.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";ifr.allowFullscreen=true;f.appendChild(ifr);
+ }
+ var m=document.createElement("div");m.className="meta";
+ var b=document.createElement("b");b.textContent=w.t;var sp=document.createElement("span");sp.textContent=w.r||KIND[w.type];
+ m.appendChild(b);m.appendChild(sp);d.appendChild(f);d.appendChild(m);box.appendChild(d);cards[i]=d;
+});
+function show(f){
+ box.querySelectorAll(".vid").forEach(function(d){d.hidden=!(f==="all"||d.dataset.c===f)});
+ document.querySelectorAll("#filters button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.f===f)});
+}
+$("filters").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+ if(b.dataset.go){$(b.dataset.go).scrollIntoView({behavior:"smooth"});return}
+ show(b.dataset.f)});
+/* ---- timeline ở đầu trang ---- */
+document.querySelectorAll("[data-count]").forEach(function(el){
+ el.textContent=WORK.filter(function(w){return grp(w)===el.dataset.count}).length+" video";
+});
+var tin=$("tlin"),play=$("play"),ruler=$("ruler"),clips=[].slice.call(document.querySelectorAll("#track .clip")),cur=null;
+function ticks(){ruler.innerHTML="";for(var i=0;i*100<tin.clientWidth;i++){var t=document.createElement("div");t.className="tick";t.style.left=i*100+"px";t.innerHTML="<span>"+fmt(i*5)+"</span>";ruler.appendChild(t)}}
+function setClip(c){
+ if(c===cur)return;cur=c;
+ clips.forEach(function(x){x.classList.toggle("on",x===c)});tin.classList.add("has");
+ $("tlname").innerHTML="<b>"+c.querySelector(".nm").innerHTML+"</b> · "+c.querySelector("small").innerHTML;
+ var k=c.dataset.k,dp=(k==="design"||k==="photo");show(dp?"all":k);$("tlgo").href=dp?"#design":"#work";
+}
+function at(x){
+ x=Math.max(0,Math.min(tin.clientWidth-2,x));play.style.left=x+"px";
+ var hit=clips[0];clips.forEach(function(c){if(c.offsetLeft<=x)hit=c});setClip(hit);
+}
+function mv(e){at(e.clientX-tin.getBoundingClientRect().left)}
+[ruler,$("knob")].forEach(function(el){
+ el.addEventListener("pointerdown",function(e){e.preventDefault();el.setPointerCapture(e.pointerId);tin.classList.add("drag");mv(e)});
+ el.addEventListener("pointermove",function(e){if(el.hasPointerCapture(e.pointerId))mv(e)});
+ ["pointerup","pointercancel"].forEach(function(n){el.addEventListener(n,function(){tin.classList.remove("drag")})});
+});
+$("knob").addEventListener("keydown",function(e){
+ if(e.key==="ArrowRight"){e.preventDefault();at(play.offsetLeft+24)}
+ if(e.key==="ArrowLeft"){e.preventDefault();at(play.offsetLeft-24)}
+});
+clips.forEach(function(c){c.addEventListener("click",function(){at(c.offsetLeft+2)})});
+ticks();window.addEventListener("resize",function(){ticks();if(cur)play.style.left=(cur.offsetLeft+2)+"px"});
+document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){
+ document.documentElement.dataset.lang=b.dataset.set;document.documentElement.lang=b.dataset.set;
+ document.querySelectorAll(".lang button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+})});
+</script>
+</body>
+</html>
